@@ -3,8 +3,13 @@ const path = require ('path')
 const routes = require('./routes');
 const app = express();
 
+require('./routes/send');
+
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.set()
+
 
 app.use('/', routes);
 

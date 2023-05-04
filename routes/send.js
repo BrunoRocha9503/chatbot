@@ -1,7 +1,8 @@
 const amqp = require('amqplib/callback_api');
 const queue ="mensagem_chat";
 
-function enviar(){
+function enviar(message){
+    var message = "teste";
     amqp.connect("amqp://localhost", (err, connection) => {
         if(err){
             console.error("Conexão falhou:", err);
