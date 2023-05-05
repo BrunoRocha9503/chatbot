@@ -7,11 +7,10 @@ router.get('/', (req, res) => {
   });
 
 router.post('/index', (req, res) => {
-    const message ={
-        texto: req.body.texto
-    };
+    const message = req.body.texto;
+
     enviar(message);
-    res.redirect('/index');
+    res.redirect('/');
 });
 
   
