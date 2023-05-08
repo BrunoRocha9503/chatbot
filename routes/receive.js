@@ -2,7 +2,7 @@ const amqp = require('amqplib/callback_api');
 const queue ="mensagem_chat";
 
 
-function receber(message){
+function receber(callback){
     amqp.connect("amqp://localhost", (err, connection) => {
         if(err){
             console.error("Conexão falhou:", err);
@@ -17,10 +17,9 @@ function receber(message){
             
             console.log("Esperando mensagem na fila");
             
-        channel.consume(
-            queue,
-            (message) =>{
+        channel.consume(queue,(message) =>{
                 console.log("mensagem recebida:", message.content.toString());
+                callback(message.content.toString());
             },
             {noAck: true}
         );
