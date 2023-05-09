@@ -13,8 +13,7 @@ function enviar(message){
                 process.exit(1);
             }
             channel.assertQueue(queue, {durable: false});
-    
-            channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
+            channel.sendToQueue(queue, Buffer.from(message));
             console.log("Mensagem enviada:", message);
         });
     

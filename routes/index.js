@@ -21,7 +21,7 @@ router.get('/index', (req, res) => {
     } else {
       res.render('index', { mensagem: 'Não foi possível receber a resposta.' });
     }
-});
+  });
 });
 
 module.exports = router;
